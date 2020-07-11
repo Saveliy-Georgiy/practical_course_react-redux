@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Rating, RatingValueType} from './Rating';
-import Accordion from "./Accordion";
-import OnOff from './OnOff';
+import {Rating, RatingValueType} from './components/Rating/Rating';
+import {Accordion} from "./components/Accordion/Accordion";
+import {OnOff} from './components/OnOff/OnOff';
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
+import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 
 function App(props: any) {
 
@@ -16,7 +19,7 @@ function App(props: any) {
                 value={ratingValue}
                 onClick={setRatingValue}
             />
-
+            <UncontrolledRating/>
             <Accordion
                 titleValue={"Menu"}
                 collapsed={accordionCollapsed}
@@ -24,11 +27,19 @@ function App(props: any) {
                     setAccordionCollapsed(!accordionCollapsed)
                 }}
             />
-
+            <UncontrolledAccordion
+                titleValue={"Menu"}
+            />
             <OnOff on={switchOn} onChange={setSwitchOn}/>
+
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
 
         </div>
     );
+}
+
+type PageTitlePropsType = {
+    title: string
 }
 
 export default App;
