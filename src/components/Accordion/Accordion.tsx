@@ -13,6 +13,9 @@ type AccordionPropsType = {
     onClick: (value: any) => void
 }
 
+const AccordionTitle = React.memo(AccordionTitleSecret);
+
+
 export function Accordion(props: AccordionPropsType) {
 
     return <div>
@@ -27,7 +30,7 @@ type AccordionTitlePropsType = {
     onChange: () => void
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+function AccordionTitleSecret(props: AccordionTitlePropsType) {
 return (
     <h3 onClick={(e) => props.onChange()}>-- {props.title} -- </h3>
 )
